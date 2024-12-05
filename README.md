@@ -5,7 +5,7 @@ We explore how to set up a web server to easily retrieve pictures from an ESP32-
 
 All you need:
 ✅ ESP32-CAM module.
-✅ Code examples and resources (Download links provided below)
+✅ Code examples and resources 
 ✅ Your own Domain/Subdomain 
 
 Youtube - https://youtube.com/shorts/Tlqf5XreCVc
