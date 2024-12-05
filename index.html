@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Public ESP32-CAM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        img {
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your Public ESP32-CAM</h1>
+    <img id="image" src="image.jpg" alt="Image from ESP32">
+    
+    <script>
+        function updateImage() {
+            const imgElement = document.getElementById("image");
+            const currentTime = new Date().getTime(); //timeframe
+
+            const newImage = new Image(); 
+            newImage.src = `image.jpg?${currentTime}`; // upload new image
+            newImage.onload = function() {
+                imgElement.src = newImage.src; // upload
+            };
+        }
+
+        setInterval(updateImage, 500); // delay 500
+    </script>
+</body>
+</html>
