@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Analysis</title>
+    <style>
+        /* styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh; /* H */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* center */
+            align-items: center; /* center  */
+            background-color: #f0f0f0; /* bk color */
+        }
+
+    
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* results */
+        #results {
+            text-align: center;
+            margin-top: 20px;
+            max-width: 90%; /* width */
+            overflow: hidden; /* hide some content */
+        }
+
+        /* image */
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+
+        /* text styles */
+        .results p {
+            font-size: 18px;
+            color: #555;
+        }
+
+    </style>
+    <script>
+        // scr refresh
+        function updateResults() {
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', 'aws.php', true);  // AWS request
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // data update
+                    document.getElementById("results").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+
+        // update each 1sec
+        setInterval(updateResults, 1000);
+    </script>
+</head>
+<body>
+    <div id="results">
+        <!-- results -->
+    </div>
+</body>
+</html>
